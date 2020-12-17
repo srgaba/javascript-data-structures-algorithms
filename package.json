@@ -1,0 +1,12 @@
+{
+  "name": "Data_Estructure",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
