@@ -10,7 +10,7 @@ class myArr {
       return item;
     }
   
-    pop(item){
+    pop(){
       const lastItem = this.data[this.length];
       delete this.data[this.length - 1];
       return lastItem;
