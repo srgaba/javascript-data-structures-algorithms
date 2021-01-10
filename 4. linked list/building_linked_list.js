@@ -96,6 +96,7 @@ class LinkedList {
     }
     currentNode.next = null;
     this.tail = currentNode;
+    this.length--;
     return this;
   }
 
