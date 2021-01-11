@@ -4,9 +4,9 @@ class Node {
       this.last = null;
       this.next = null;
     }
-  }
+}
   
-  class DoublyList {
+class DoublyList {
     constructor(value){
       this.head = new Node(value);
       this.tail = this.head;
