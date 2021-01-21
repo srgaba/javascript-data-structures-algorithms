@@ -52,6 +52,7 @@ class LinkedList {
     
     lastNode.next = newNode;
     newNode.next = currentNode;
+    this.length++;
   }
 
   delete(index){
@@ -100,6 +101,22 @@ class LinkedList {
     return this;
   }
 
+  reverse(){
+    let first = this.head;
+    this.tail = first;
+    let second = first.next;
+
+    while(second){
+      const tmp = second.next;
+      second.next = first;
+      first = second;
+      second = tmp;
+    }
+
+    this.head.next = null;
+    this.head = first;
+  }
+
   print(){
     const arr = [];
     let currentNode = this.head;
@@ -115,8 +132,10 @@ let myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(3);
 myLinkedList.preppend(1);
-myLinkedList.insert(0, 53);
+myLinkedList.insert(1, 53);
+myLinkedList.print();
+myLinkedList.reverse();
+myLinkedList.print();
 
-myLinkedList.print();
-myLinkedList.delete(2);
-myLinkedList.print();
+
+

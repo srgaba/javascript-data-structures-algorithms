@@ -56,7 +56,7 @@ class DoublyList {
   
     delete(index){
       if(index === 0){
-        return this.shift()
+        return this.shift();
       }
   
       if(index >= this.length){
