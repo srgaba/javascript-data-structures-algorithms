@@ -1,7 +1,7 @@
 class Node {
   constructor(value) {
     this.value = value;
-    this.next = null;
+    this.last = null;
   }
 }
 
@@ -11,7 +11,9 @@ class Stack {
     this.bottom = null;
     this.length = 0;
   }
-  peek() {}
+  peek() {
+    return this.top;
+  }
   push(value) {
     const newNode = new Node(value);
 
@@ -22,19 +24,27 @@ class Stack {
       return this;
     }
 
-    this.top.next = newNode;
+    const holdingPointer = this.top;
     this.top = newNode;
+    newNode.last = holdingPointer;
     this.length++;
     return this;
-    //criar nó
-    //verificar se a nossa pilha está vazia, se sim
-    //  fazer com que o nosso nó seja o topo e o bottom
-    //se não
-    //  apontar o primeiro nó para o novo
-    //  e fazer o topo apontar para o novo nó
-    //  incrementar a largura
   }
-  pop() {}
+  pop() {
+    if (this.length === 1) {
+      this.bottom = null;
+      this.length = 0;
+      return this;
+    }
+
+    const currentTop = this.top;
+    const second = currentTop.last;
+    currentTop.last = null;
+    this.top = second;
+    this.length--;
+
+    return this;
+  }
 
   isEmpty() {
     if (this.length === 0) {
@@ -47,6 +57,10 @@ class Stack {
 
 const myStack = new Stack();
 
-myStack.push("Discord");
+myStack.push(" ");
 myStack.push("Google");
 myStack.push("Udemy");
+
+myStack.pop();
+myStack.pop();
+myStack.pop();
